@@ -1,12 +1,10 @@
-# sitErgo
-joshsit's project files for the design and development of compact and ergonomic mechanical keyboards.
-
 # Compact Ergonomic Mechanical Keyboard (sitErgo)
 
 A custom-designed, compact mechanical keyboard prototype focused on ergonomics, portability, and efficient typing.  
 Developed as an independent engineering project exploring human factors, mechanical design, and open-source firmware customization.
 
-![Keyboard Prototype](images/prototype.jpg)  
+<img width="821" height="432" alt="image" src="https://github.com/user-attachments/assets/53096477-cf5f-46dc-8823-95ca24656a4d" />
+  
 *Prototype v1 of the sitErgo Keyboard*
 
 ---
@@ -27,8 +25,7 @@ Inspired by enthusiast boards like the **Corne, Atreus, and Alice layouts**, thi
 - **Column-staggered design** for improved finger ergonomics  
 - **Inverted-V orientation** for reduced ulnar deviation  
 - **Open-source QMK firmware** with customizable layers, macros, and mouse keys  
-- **Hot-swappable switches** (prototype dependent)  
-- **Portable flat profile** (no tenting, for ease of transport)  
+- **Hot-swappable switches** for customizability  
 
 ---
 
