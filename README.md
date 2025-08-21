@@ -34,12 +34,13 @@ Inspired by enthusiast boards like the **Corne, Atreus, and Alice layouts**, thi
 |----------------------------|--------------------------------|----------------|
 | PCB (custom)               | JLCPCB fabrication             | <$5            |
 | Microcontroller            | RP2040-Zero                    | <$5            |
-| Key switches (x36)         | Akko Pro v3 mx switches        | $10            |
-| Keycaps (blank, x36)       | Generic MOA profile keycaps    | $10            |
-| Diodes (1N4148, x36)       | Generic, through-hole          | <$5            |
+| Hot-Swap Sockets (x36)     | MX style sockets               | <$5            |
+| Diodes (1N4148, x36)       | Generic, through-hole diodes   | <$5            |
 | Case / Plate (prototype)   | 3D printed PLA+                | <$5            |
 | Misc. (fasteners, etc.)    | —                              | <$5            |
-| **Total**                  | —                              | ~$30           |
+| Key switches (x36)         | Akko Pro v3 MX switches        | $10            |
+| Keycaps (blank, x36)       | Generic MOA profile keycaps    | $10            |
+| **Total**                  | —                              | ~$35           |
 
 *(Costs vary depending on sourcing and materials; BOM provided for reference.)*
 
