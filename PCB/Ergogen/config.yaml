@@ -1,0 +1,236 @@
+units:
+  dx: 0.5u
+
+points:
+  zones:
+    matrix:
+      anchor:
+        shift: [100,-100]
+      columns:
+        pinky:
+          key:
+            column_net: P29
+            mirror.column_net: P3
+        ring:
+          key:
+            stagger: u/2
+            column_net: P28
+            mirror.column_net: P4
+        middle:
+          key:
+            stagger: u/2
+            column_net: P27
+            mirror.column_net: P5
+        index:
+          key:
+            stagger: -u/2
+            column_net: P26
+            mirror.column_net: P6
+        inner:
+          key:
+            column_net: P15
+            mirror.column_net: P7
+      rows:
+        bottom:
+          row_net: P9
+          mirror.row_net: P9
+        home:
+          row_net: P8
+          mirror.row_net: P8
+        top:
+          row_net: P2
+          mirror.row_net: P2
+    thumb:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-u,-u]
+      rows:
+        cluster:
+          row_net: P11
+      columns:
+          inner:
+            key:
+              column_net: P27
+              mirror.column_net: P5
+          middle:
+            key:
+              column_net: P26
+              mirror.column_net: P6
+          outer:
+            key:
+              column_net: P15
+              mirror.column_net: P7
+  rotate: -17.5
+  mirror:
+    ref: thumb_outer_cluster
+    distance: 2u
+
+outlines:
+  raw_outline: ##with 1mm margin
+    - what: rectangle
+      where: true
+      size: [u+2,u+2]
+  keys_ref:
+    - what: rectangle
+      where: true
+      size: [u-0.25,u-0.25]
+  centre:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: mirror_matrix_inner_top
+          shift: [dx, dx-3.5u]
+        - ref: matrix_inner_top
+          shift: [dx, dx-3.5u]
+        - ref: matrix_inner_top
+          shift: [dx-3, dx]
+        - ref: mirror_matrix_inner_top
+          shift: [dx-3, dx]
+  centre2:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: thumb_outer_cluster
+          shift: [0.5u, 0.5u]
+        - ref: thumb_outer_cluster
+          shift: [0.5u, 0]
+        - ref: mirror_thumb_outer_cluster
+          shift: [0.5u, 0]
+        - ref: mirror_thumb_outer_cluster
+          shift: [0.5u, 0.5u]
+                
+  joined_outline:
+    - name: raw_outline
+    - operation: add
+      name: centre
+
+  joined2:
+    - name: joined_outline
+    - operation: add
+      name: centre2
+      fillet: 2.5
+
+
+  visual1:
+    - name: raw_outline
+    - operation: subtract
+      name: keys_ref
+ 
+  visual2:
+    - name: joined2
+    - operation: subtract
+      name: keys_ref
+
+
+  xl_raw_outline:
+    - what: rectangle
+      where: true
+      size: [u+5,u+5]
+
+  xl_centre:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: mirror_matrix_inner_top
+          shift: [-1.5u, 0]        
+        - ref: matrix_inner_top
+          shift: [-1.5u, 0]
+        - ref: thumb_outer_cluster
+          shift: [0, -4.5]
+        - ref: mirror_thumb_outer_cluster
+          shift: [0, -4.5]
+
+  xl_joined_outline:
+    - name: xl_raw_outline
+    - operation: add
+      name: xl_centre
+      fillet: 2.5
+  
+  xl_visual:
+    - name: xl_joined_outline
+    - operation: subtract
+      name: keys_ref
+  xl_visual2:
+    - name: xl_joined_outline
+    - operation: subtract
+      name: joined2        
+     
+
+pcbs:
+  wired_pcb_ergo_wip:
+    outlines:
+      main:
+        outline: joined2
+    footprints:
+      mx_hotswap:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -0.5u+1]  
+          rotate: 0
+      mcu:
+        what: rp2040zero
+        params:
+
+          orientation: "up"
+
+        where:
+          ref.aggregate.parts: [matrix_inner_top, mirror_matrix_inner_top]
+          shift: [0,-0.75u]
+          
+cases:
+  bottom:
+    - name: joined2
+      extrude: 1
+  xl_bottom:
+    - name: xl_joined_outline
+      extrude: 1
+  outsideofwall:
+    - name: xl_joined_outline
+      extrude: 5
+  insideofwall: 
+    - name: joined2
+      extrude: 5
+
+wall:
+  - what: case
+    name: outsideofwall
+    operation: add
+  - what: case
+    name: insideofwall
+    operation: subtract
+
+cases:
+  testcase:
+  
+  - what: case
+    name: xl_bottom
+    operation: add
+  - what: case
+    name: wall
+    operation: add          
+
+      
+
+## to build in terminal:
+## cd Desktop\Github\pcb_ergo\ergogenrp2040zero
+## ergogen .
+
+## ergogen . && npx @jscad/cli@1 output/cases/bottom.jscad -of stla
+## ^ for only bottom.jscad file to be turned into stl
+## ergogen . && for i in output/cases/*.jscad; do npx @jscad/cli@1 "$i" -of stla; done
+                                 
+       
+
