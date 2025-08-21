@@ -1,8 +1,12 @@
 <img width="868" height="651" alt="image" src="https://github.com/user-attachments/assets/906662a4-9098-46a2-8016-976f2b579b61" />
 
-<img width="868" height="651" alt="image" src="https://github.com/user-attachments/assets/68456bf9-6624-480a-a82c-802388ebe402" />
+<img width="868" height="651" alt="image" src="https://github.com/user-attachments/assets/f97ca6b2-31e5-40cc-9790-941e4d922a3c" />
 
 <img width="868" height="651" alt="image" src="https://github.com/user-attachments/assets/fd54c2c7-f98b-4496-9190-59d06ad4243d" />
+
+<img width="868" height="651" alt="image" src="https://github.com/user-attachments/assets/36642176-d039-4bf2-bc1a-d8697a274c63" />
+
+<img width="868" height="651" alt="image" src="https://github.com/user-attachments/assets/7934c01e-d506-4a44-8685-cde498ccb86b" />
 
 <img width="868" height="651" alt="image" src="https://github.com/user-attachments/assets/04fdd6cb-8036-41ef-9a72-aa7fe315c3c0" />
 
@@ -19,6 +23,10 @@
 <img width="936" height="541" alt="image" src="https://github.com/user-attachments/assets/387484a3-c555-410d-b61d-6cb69ab73120" />
 
 <img width="926" height="508" alt="image" src="https://github.com/user-attachments/assets/daae8982-eff9-4015-94b8-cb11e7370cf3" />
+
+First prototype:
+<img width="868" height="651" alt="image" src="https://github.com/user-attachments/assets/86ccd151-bdb8-4ec7-9e56-b440f7843124" />
+
 
 
 
